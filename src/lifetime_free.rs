@@ -75,7 +75,6 @@ unsafe impl LifetimeFree for core::num::NonZeroU128 {}
 unsafe impl LifetimeFree for core::num::NonZeroUsize {}
 
 unsafe impl<T: LifetimeFree> LifetimeFree for [T] {}
-#[rustversion::since(1.51)]
 unsafe impl<T: LifetimeFree, const SIZE: usize> LifetimeFree for [T; SIZE] {}
 unsafe impl<T: LifetimeFree> LifetimeFree for Option<T> {}
 unsafe impl<T: LifetimeFree, E: LifetimeFree> LifetimeFree for Result<T, E> {}
@@ -113,6 +112,5 @@ mod alloc_impls {
     unsafe impl<T: LifetimeFree> LifetimeFree for alloc::boxed::Box<T> {}
     unsafe impl<T: LifetimeFree> LifetimeFree for alloc::vec::Vec<T> {}
 
-    #[rustversion::attr(since(1.60), cfg(target_has_atomic = "ptr"))]
     unsafe impl<T: LifetimeFree> LifetimeFree for alloc::sync::Arc<T> {}
 }
