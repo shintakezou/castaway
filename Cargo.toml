@@ -17,8 +17,7 @@ default = ["std"]
 std = ["alloc"]
 alloc = []
 
-[dependencies]
-rustversion = "1"
 
 [dev-dependencies]
 paste = "1"
+
